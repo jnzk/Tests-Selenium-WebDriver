@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
     compile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     compile("io.github.bonigarcia:webdrivermanager:3.6.1")
     compile "org.slf4j:slf4j-api:1.6.1"
