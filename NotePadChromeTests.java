@@ -24,12 +24,8 @@ public class NotePadChromeTests {
     @Test
     public void aNotepadInChromeTest(){
         driver.get("https://anotepad.com/");
-
-        WebElement noteTitle = driver.findElement(By.name("notetitle"));
-        noteTitle.sendKeys("My First Note");
-
-        WebElement saveButton = driver.findElement(By.id("btnSaveNote"));
-        saveButton.click();
+        driver.findElement(By.name("notetitle")).sendKeys("My First Note");;
+        driver.findElement(By.id("btnSaveNote")).click();
 
         wait = new WebDriverWait(driver, 5);
 
@@ -37,11 +33,8 @@ public class NotePadChromeTests {
                                 " To access your notes from anywhere and never lose them, please Create a Free Account. Your existing notes will be saved into your account.";
         wait.until(ExpectedConditions.textToBe(By.cssSelector(".alert.alert-warning"), warningMessage));
 
-        WebElement deleteButton = driver.findElement(By.cssSelector(".delete"));
-        deleteButton.click();
-
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        driver.findElement(By.cssSelector(".delete")).click();
+        wait.until(ExpectedConditions.alertIsPresent()).accept();
 
         String noNoteText = "No note here.";
         wait.until(ExpectedConditions.textToBe(By.cssSelector(".saved_notes"), noNoteText));
